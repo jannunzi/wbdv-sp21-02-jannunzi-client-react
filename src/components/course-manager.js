@@ -119,6 +119,7 @@ class CourseManager extends React.Component {
               "/courses/editor/:courseId",
               "/courses/editor/:courseId/:moduleId",
               "/courses/editor/:courseId/:moduleId/:lessonId"]}
+                 exact={true}
                  render={(props) => <CourseEditor {...props}/>}>
           </Route>
 
