@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import EditableItem from "./editable-item";
 import {useParams} from "react-router-dom";
 import moduleService from "../services/module-service"
+import moduleActions from "../actions/module-actions";
 
 const ModuleList = (
     {
@@ -46,35 +47,11 @@ const stpm = (state) => {
 }
 const dtpm = (dispatch) => {
     return {
-        createModule: (courseId) => {
-            moduleService.createModuleForCourse(courseId, {title: "New Module"})
-                .then(theActualModule => dispatch({
-                    type: "CREATE_MODULE",
-                    module: theActualModule
-                }))
-        },
-        deleteModule: (item) =>
-            moduleService.deleteModule(item._id)
-                .then(status => dispatch({
-                    type: "DELETE_MODULE",
-                    moduleToDelete: item
-                })),
-        updateModule: (module) => 
-            moduleService.updateModule(module._id, module)
-                .then(status => dispatch({
-                    type: "UPDATE_MODULE",
-                    module
-                })),
-        findModulesForCourse: (courseId) => {
-            // alert(courseId);
-            moduleService.findModulesForCourse(courseId)
-                .then(theModules => dispatch({
-                    type: "FIND_MODULES_FOR_COURSE",
-                    modules: theModules
-                }))
-        }
+        createModule: (courseId) => moduleActions.createModule(dispatch, courseId),
+        deleteModule: (item) => moduleActions.deleteModule(dispatch, item),
+        updateModule: (module) => moduleActions.updateModule(dispatch, module),
+        findModulesForCourse: (courseId) => moduleActions.findModulesForCourse(dispatch, courseId)
     }
 }
 
-export default connect(stpm, dtpm)
-        (ModuleList)
+export default connect(stpm, dtpm)(ModuleList)

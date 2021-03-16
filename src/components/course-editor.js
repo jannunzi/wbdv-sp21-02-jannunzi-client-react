@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Link, useParams} from "react-router-dom";
 import moduleReducer from "../reducers/modules-reducer";
 import lessonReducer from "../reducers/lesson-reducer";
@@ -34,10 +34,10 @@ const CourseEditor = ({history}) => {
                 {/*   className="fas fa-times float-right"></i>*/}
             </h2>
             <div className="row">
-                <div className="col-4">
+                <div className="col-3">
                     <ModuleList/>
                 </div>
-                <div className="col-8">
+                <div className="col-9">
                     <LessonTabs/>
                     <br/>
                     <TopicPills/>

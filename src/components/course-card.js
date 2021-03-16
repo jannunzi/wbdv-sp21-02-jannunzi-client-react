@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const CourseCard = ({course}) =>
   <div className="col-4">
-    <div className="card">
+    <div className="card shadow" style={{marginBottom: "30px"}}>
       <img src="https://www.valuecoders.com/blog/wp-content/uploads/2016/08/react.png" className="card-img-top" alt="..."/>
       <div className="card-body">
         <h5 className="card-title">{course.title}</h5>
