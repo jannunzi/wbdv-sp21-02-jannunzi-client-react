@@ -16,3 +16,11 @@ code {
 .list-group-item.active a {
   color: white;
 }
+
+.margin-left-10px {
+  margin-left: 10px;
+}
+
+.margin-bottom-10px {
+  margin-bottom: 10px;
+}
